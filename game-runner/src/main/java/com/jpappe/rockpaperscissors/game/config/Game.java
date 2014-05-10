@@ -41,9 +41,6 @@ public class Game {
 		return players;
 	}
 
-	public void setPlayers( List<PlayerConfiguration> players ) {
-		this.players = players;
-	}
 
 	public int getRounds() {
 		return rounds;
