@@ -8,5 +8,7 @@ package com.jpappe.rockpaperscissors.framework;
  */
 public interface Player {
 
+	Hand getHand();
 
+	void reportOutcome( RoundOutcome outcome );
 }
