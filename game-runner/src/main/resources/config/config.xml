@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<GameConfiguration>
+    <Games>
+        <Game>
+            <Players>
+                <player name="bob" class="java.lang.String"/>
+                <player name="fred" class="com.random.class"/>
+            </Players>
+            <rounds>10</rounds>
+        </Game>
+        <Game>
+            <Players>
+                <player name="anne" class="org.junit.Test"/>
+                <player name="charles" class="org.junit.Assert"/>
+            </Players>
+            <rounds>20</rounds>
+        </Game>
+    </Games>
+</GameConfiguration>
