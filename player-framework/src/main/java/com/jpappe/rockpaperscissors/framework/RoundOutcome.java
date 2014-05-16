@@ -12,6 +12,8 @@ import java.util.Map;
  */
 public class RoundOutcome {
 
+	// who were the players?
+	private Map<String, Player> players;
 	// the hands played by each user
 	private Map<String, Hand> handsPlayed;
 	// was the round a tie?
@@ -56,6 +58,14 @@ public class RoundOutcome {
 		}
 
 		return String.format( "%s, %s; Result: %s", p.get( 0 ), p.get( 1 ), (tie ? "TIE" : String.format( "%s wins", winner )) );
+	}
+
+	public Map<String, Player> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers( Map<String, Player> players ) {
+		this.players = players;
 	}
 
 }
