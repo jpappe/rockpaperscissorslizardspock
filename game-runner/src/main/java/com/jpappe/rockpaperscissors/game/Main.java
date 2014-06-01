@@ -60,6 +60,8 @@ public class Main {
 				System.out.println( "Building player " + pc.getPlayerName() + " (" + pc.getClassName() + ")" );
 				players.put( pc.getPlayerName(), playerFactory.buildPlayer( pc.getClassName() ) );
 			}
+			// assign the current players to the game engine
+			gameEngine.setPlayers( players );
 
 			// setup the summary
 			GameSummary summary = new GameSummary( players );
@@ -71,7 +73,7 @@ public class Main {
 					hands.put( name, players.get( name ).getHand() );
 				}
 				// record the results of the round
-				RoundOutcome outcome = gameEngine.determineOutcome( players, hands );
+				RoundOutcome outcome = gameEngine.determineOutcome( hands );
 				System.out.println( outcome );
 				summary.addRoundOutcome( outcome );
 			}

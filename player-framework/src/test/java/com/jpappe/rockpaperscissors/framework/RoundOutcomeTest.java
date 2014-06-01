@@ -20,8 +20,9 @@ public class RoundOutcomeTest extends TestCase {
 		r.setTie( false );
 		r.setHandsPlayed( played );
 		r.setWinner( "bob" );
+		r.setSentence( "PAPER covers ROCK" );
 
-		assertEquals( "bob played PAPER, andy played ROCK; Result: bob wins", r.toString() );
+		assertEquals( "bob played PAPER\nandy played ROCK\nPAPER covers ROCK\nResult: bob wins!", r.toString() );
 	}
 
 	@Test
@@ -34,11 +35,12 @@ public class RoundOutcomeTest extends TestCase {
 
 		r.setHandsPlayed( played );
 		r.setTie( true );
+		r.setSentence( "It was a tie!" );
 		// we'll set a winner even though that wouldn't happen in real life; we 
 		// want to prove it gets ignored
 		r.setWinner( "charles" );
 
-		assertEquals( "dan played LIZARD, charles played LIZARD; Result: TIE", r.toString() );
+		assertEquals( "dan played LIZARD\ncharles played LIZARD\nIt was a tie!\nResult: TIE", r.toString() );
 
 	}
 

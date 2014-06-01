@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * Represents the outcome of an individual round.
  * 
@@ -20,6 +22,10 @@ public class RoundOutcome {
 	private boolean tie;
 	// which player was the winner?
 	private String winner;
+	// may as well store the loser, too
+	private String loser;
+	// the sentence summary of the action (e.g., "rock crushes scissors")
+	private String sentence;
 
 	public Map<String, Hand> getHandsPlayed() {
 		return handsPlayed;
@@ -56,8 +62,10 @@ public class RoundOutcome {
 		for ( String name : handsPlayed.keySet() ) {
 			p.add( String.format( "%s played %s", name, handsPlayed.get( name ).name() ) );
 		}
+		p.add( this.getSentence() );
+		p.add( String.format( "Result: %s", (isTie() ? "TIE" : String.format( "%s wins!", getWinner() )) ) );
 
-		return String.format( "%s, %s; Result: %s", p.get( 0 ), p.get( 1 ), (tie ? "TIE" : String.format( "%s wins", winner )) );
+		return StringUtils.join( p, "\n" );
 	}
 
 	public Map<String, Player> getPlayers() {
@@ -66,6 +74,22 @@ public class RoundOutcome {
 
 	public void setPlayers( Map<String, Player> players ) {
 		this.players = players;
+	}
+
+	public String getSentence() {
+		return sentence;
+	}
+
+	public void setSentence( String sentence ) {
+		this.sentence = sentence;
+	}
+
+	public String getLoser() {
+		return loser;
+	}
+
+	public void setLoser( String loser ) {
+		this.loser = loser;
 	}
 
 }
