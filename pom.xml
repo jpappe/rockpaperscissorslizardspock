@@ -62,11 +62,19 @@
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
-				<version>4.9</version>
+				<version>4.11</version>
 				<scope>test</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	
+	<distributionManagement>
+		<site>
+			<id>fake</id>
+			<name>Fake deployment URL</name>
+			<url>http://localhost/rockpaperscissorslizardspock/</url>
+		</site>
+	</distributionManagement>
 
 	<modules>
 		<module>game-runner</module>
